@@ -1,0 +1,33 @@
+digraph api {
+	graph [	rankdir = "LR" ];
+	node [shape=box, style="rounded,filled"];
+	compound=true;
+
+	subgraph cluster_condor_exe {
+		label = "Condor Soaring Simulator";
+		condor_memory [label = "Process memory"];
+	}
+	
+	subgraph cluster_condor_api {
+		label = "Condor API\nWindows Service";
+		condor_endpoint [label = "CondorEndpoint"];
+		condor_process_reader [shape = "record", label = "<f0> Reading parameters:|latitude|longitude|true airspeed|wind course|wind speed|MC|ailerons|elevator|rudder|airbreaks"];
+		commands_endpoint [label = "CommandsEndpoint"];
+		condor_process_writer [shape = "record", label = "<f0> Sending commands:|ailerons|elevator|rudder|airbreaks"];
+	}
+	
+	subgraph cluster_matlab {
+		label = "MatLab";
+		external_enpoint [label = "ExternalEdpoint"];
+		simulink_model [label = "Simulink model"];
+	}	
+
+	condor_memory -> condor_endpoint [style=bold,ltail=cluster_condor_exe,label="UDP"];
+	condor_endpoint -> condor_process_reader:f0 [constraint=false];
+	condor_memory -> condor_process_reader:f0 [label="reading\nfrom process",color=blue,fontcolor=blue];
+	condor_process_reader:f0 -> external_enpoint [style=bold,label="UDP"];
+	external_enpoint -> simulink_model [constraint=false];
+	simulink_model -> commands_endpoint [style=bold,label="UDP"];
+	commands_endpoint -> condor_process_writer:f0 [constraint=false];
+	condor_process_writer:f0 -> condor_memory [label="writing\nto process",color=red,fontcolor=red];
+}

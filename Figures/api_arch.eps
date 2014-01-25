@@ -1,0 +1,762 @@
+%!PS-Adobe-3.0
+%%Creator: graphviz version 2.34.0 (20130907.0111)
+%%Title: api
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 638 646
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 602 610 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% cluster_condor_exe
+gsave
+1 setlinewidth
+0 0 0 graphcolor
+newpath 8 438 moveto
+8 513 lineto
+172 513 lineto
+172 438 lineto
+closepath stroke
+0 0 0 graphcolor
+14 /Times-Roman set_font
+16 497.8 moveto 148 (Condor Soaring Simulator) alignedtext
+grestore
+% cluster_condor_api
+gsave
+1 setlinewidth
+0 0 0 graphcolor
+newpath 268 8 moveto
+268 594 lineto
+416 594 lineto
+416 8 lineto
+closepath stroke
+0 0 0 graphcolor
+14 /Times-Roman set_font
+307 578.8 moveto 70 (Condor API) alignedtext
+0 0 0 graphcolor
+14 /Times-Roman set_font
+292 563.8 moveto 100 (Windows Service) alignedtext
+grestore
+% cluster_matlab
+gsave
+1 setlinewidth
+0 0 0 graphcolor
+newpath 464 237 moveto
+464 384 lineto
+586 384 lineto
+586 237 lineto
+closepath stroke
+0 0 0 graphcolor
+14 /Times-Roman set_font
+503 368.8 moveto 44 (MatLab) alignedtext
+grestore
+% condor_memory
+gsave
+0 0 0.82745 nodecolor
+newpath 133.5 482 moveto
+133.5 482 46.5 482 46.5 482 curveto
+40.5 482 34.5 476 34.5 470 curveto
+34.5 470 34.5 458 34.5 458 curveto
+34.5 452 40.5 446 46.5 446 curveto
+46.5 446 133.5 446 133.5 446 curveto
+139.5 446 145.5 452 145.5 458 curveto
+145.5 458 145.5 470 145.5 470 curveto
+145.5 476 139.5 482 133.5 482 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 133.5 482 moveto
+133.5 482 46.5 482 46.5 482 curveto
+40.5 482 34.5 476 34.5 470 curveto
+34.5 470 34.5 458 34.5 458 curveto
+34.5 452 40.5 446 46.5 446 curveto
+46.5 446 133.5 446 133.5 446 curveto
+139.5 446 145.5 452 145.5 458 curveto
+145.5 458 145.5 470 145.5 470 curveto
+145.5 476 139.5 482 133.5 482 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+42.5 460.3 moveto 95 (Process memory) alignedtext
+grestore
+% condor_endpoint
+gsave
+0 0 0.82745 nodecolor
+newpath 385.5 548 moveto
+385.5 548 298.5 548 298.5 548 curveto
+292.5 548 286.5 542 286.5 536 curveto
+286.5 536 286.5 524 286.5 524 curveto
+286.5 518 292.5 512 298.5 512 curveto
+298.5 512 385.5 512 385.5 512 curveto
+391.5 512 397.5 518 397.5 524 curveto
+397.5 524 397.5 536 397.5 536 curveto
+397.5 542 391.5 548 385.5 548 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 385.5 548 moveto
+385.5 548 298.5 548 298.5 548 curveto
+292.5 548 286.5 542 286.5 536 curveto
+286.5 536 286.5 524 286.5 524 curveto
+286.5 518 292.5 512 298.5 512 curveto
+298.5 512 385.5 512 385.5 512 curveto
+391.5 512 397.5 518 397.5 524 curveto
+397.5 524 397.5 536 397.5 536 curveto
+397.5 542 391.5 548 385.5 548 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+294.5 526.3 moveto 95 (CondorEndpoint) alignedtext
+grestore
+% condor_memory->condor_endpoint
+gsave
+2 setlinewidth
+bold
+0 0 0 edgecolor
+newpath 171.65 494.89 moveto
+175.14 495.99 178.59 497.03 182 498 curveto
+212.64 506.75 247.26 514.01 276.35 519.4 curveto
+stroke
+0 0 0 edgecolor
+newpath 275.93 522.88 moveto
+286.4 521.23 lineto
+277.18 515.99 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 275.93 522.88 moveto
+286.4 521.23 lineto
+277.18 515.99 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+206 518.8 moveto 28 (UDP) alignedtext
+grestore
+% condor_process_reader
+gsave
+0 0 0.82745 nodecolor
+newpath 289 222.5 moveto
+289 222.5 395 222.5 395 222.5 curveto
+401 222.5 407 228.5 407 234.5 curveto
+407 234.5 407 463.5 407 463.5 curveto
+407 469.5 401 475.5 395 475.5 curveto
+395 475.5 289 475.5 289 475.5 curveto
+283 475.5 277 469.5 277 463.5 curveto
+277 463.5 277 234.5 277 234.5 curveto
+277 228.5 283 222.5 289 222.5 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 289 222.5 moveto
+289 222.5 395 222.5 395 222.5 curveto
+401 222.5 407 228.5 407 234.5 curveto
+407 234.5 407 463.5 407 463.5 curveto
+407 469.5 401 475.5 395 475.5 curveto
+395 475.5 289 475.5 289 475.5 curveto
+283 475.5 277 469.5 277 463.5 curveto
+277 463.5 277 234.5 277 234.5 curveto
+277 228.5 283 222.5 289 222.5 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+285 460.3 moveto 114 (Reading parameters:) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 452.5 moveto
+407 452.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+322 437.3 moveto 40 (latitude) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 429.5 moveto
+407 429.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+316 414.3 moveto 52 (longitude) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 406.5 moveto
+407 406.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+306 391.3 moveto 72 (true airspeed) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 383.5 moveto
+407 383.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+307.5 368.3 moveto 69 (wind course) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 360.5 moveto
+407 360.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+310 345.3 moveto 64 (wind speed) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 337.5 moveto
+407 337.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+331 322.3 moveto 22 (MC) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 314.5 moveto
+407 314.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+320.5 299.3 moveto 43 (ailerons) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 291.5 moveto
+407 291.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+320 276.3 moveto 44 (elevator) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 268.5 moveto
+407 268.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+323.5 253.3 moveto 37 (rudder) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 245.5 moveto
+407 245.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+316.5 230.3 moveto 51 (airbreaks) alignedtext
+grestore
+% condor_memory->condor_process_reader
+gsave
+1 setlinewidth
+0.66667 1 1 edgecolor
+newpath 145.64 464 moveto
+179.67 464 224.66 464 265.89 464 curveto
+stroke
+0.66667 1 1 edgecolor
+newpath 266 467.5 moveto
+276 464 lineto
+266 460.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0.66667 1 1 edgecolor
+newpath 266 467.5 moveto
+276 464 lineto
+266 460.5 lineto
+closepath stroke
+0.66667 1 1 edgecolor
+14 /Times-Roman set_font
+199.5 482.8 moveto 41 (reading) alignedtext
+0.66667 1 1 edgecolor
+14 /Times-Roman set_font
+182 467.8 moveto 76 (from process) alignedtext
+grestore
+% condor_endpoint->condor_process_reader
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 342 485.9 moveto
+342 495.85 342 504.75 342 511.84 curveto
+stroke
+0 0 0 edgecolor
+newpath 345.5 485.62 moveto
+342 475.62 lineto
+338.5 485.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 345.5 485.62 moveto
+342 475.62 lineto
+338.5 485.62 lineto
+closepath stroke
+grestore
+% external_enpoint
+gsave
+0 0 0.82745 nodecolor
+newpath 566 353 moveto
+566 353 484 353 484 353 curveto
+478 353 472 347 472 341 curveto
+472 341 472 329 472 329 curveto
+472 323 478 317 484 317 curveto
+484 317 566 317 566 317 curveto
+572 317 578 323 578 329 curveto
+578 329 578 341 578 341 curveto
+578 347 572 353 566 353 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 566 353 moveto
+566 353 484 353 484 353 curveto
+478 353 472 347 472 341 curveto
+472 341 472 329 472 329 curveto
+472 323 478 317 484 317 curveto
+484 317 566 317 566 317 curveto
+572 317 578 323 578 329 curveto
+578 329 578 341 578 341 curveto
+578 347 572 353 566 353 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+480 331.3 moveto 90 (ExternalEdpoint) alignedtext
+grestore
+% condor_process_reader->external_enpoint
+gsave
+2 setlinewidth
+bold
+0 0 0 edgecolor
+newpath 408 464 moveto
+462.05 464 497.33 400.6 513.59 362.7 curveto
+stroke
+0 0 0 edgecolor
+newpath 516.92 363.79 moveto
+517.49 353.21 lineto
+510.45 361.13 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 516.92 363.79 moveto
+517.49 353.21 lineto
+510.45 361.13 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+426 463.8 moveto 28 (UDP) alignedtext
+grestore
+% commands_endpoint
+gsave
+0 0 0.82745 nodecolor
+newpath 396 204 moveto
+396 204 288 204 288 204 curveto
+282 204 276 198 276 192 curveto
+276 192 276 180 276 180 curveto
+276 174 282 168 288 168 curveto
+288 168 396 168 396 168 curveto
+402 168 408 174 408 180 curveto
+408 180 408 192 408 192 curveto
+408 198 402 204 396 204 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 396 204 moveto
+396 204 288 204 288 204 curveto
+282 204 276 198 276 192 curveto
+276 192 276 180 276 180 curveto
+276 174 282 168 288 168 curveto
+288 168 396 168 396 168 curveto
+402 168 408 174 408 180 curveto
+408 180 408 192 408 192 curveto
+408 198 402 204 396 204 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+284 182.3 moveto 116 (CommandsEndpoint) alignedtext
+grestore
+% condor_process_writer
+gsave
+0 0 0.82745 nodecolor
+newpath 289 16.5 moveto
+289 16.5 395 16.5 395 16.5 curveto
+401 16.5 407 22.5 407 28.5 curveto
+407 28.5 407 119.5 407 119.5 curveto
+407 125.5 401 131.5 395 131.5 curveto
+395 131.5 289 131.5 289 131.5 curveto
+283 131.5 277 125.5 277 119.5 curveto
+277 119.5 277 28.5 277 28.5 curveto
+277 22.5 283 16.5 289 16.5 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 289 16.5 moveto
+289 16.5 395 16.5 395 16.5 curveto
+401 16.5 407 22.5 407 28.5 curveto
+407 28.5 407 119.5 407 119.5 curveto
+407 125.5 401 131.5 395 131.5 curveto
+395 131.5 289 131.5 289 131.5 curveto
+283 131.5 277 125.5 277 119.5 curveto
+277 119.5 277 28.5 277 28.5 curveto
+277 22.5 283 16.5 289 16.5 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+285 116.3 moveto 114 (Sending commands:) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 108.5 moveto
+407 108.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+320.5 93.3 moveto 43 (ailerons) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 85.5 moveto
+407 85.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+320 70.3 moveto 44 (elevator) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 62.5 moveto
+407 62.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+323.5 47.3 moveto 37 (rudder) alignedtext
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 277 39.5 moveto
+407 39.5 lineto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+316.5 24.3 moveto 51 (airbreaks) alignedtext
+grestore
+% commands_endpoint->condor_process_writer
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 342 141.75 moveto
+342 151.35 342 160.46 342 167.81 curveto
+stroke
+0 0 0 edgecolor
+newpath 345.5 141.61 moveto
+342 131.61 lineto
+338.5 141.61 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 345.5 141.61 moveto
+342 131.61 lineto
+338.5 141.61 lineto
+closepath stroke
+grestore
+% condor_process_writer->condor_memory
+gsave
+1 setlinewidth
+0 1 1 edgecolor
+newpath 276 120 moveto
+132.9 120 100.01 353.75 92.87 435.88 curveto
+stroke
+0 1 1 edgecolor
+newpath 89.37 435.74 moveto
+92.06 445.99 lineto
+96.35 436.3 lineto
+closepath fill
+1 setlinewidth
+solid
+0 1 1 edgecolor
+newpath 89.37 435.74 moveto
+92.06 445.99 lineto
+96.35 436.3 lineto
+closepath stroke
+0 1 1 edgecolor
+14 /Times-Roman set_font
+201 181.8 moveto 38 (writing) alignedtext
+0 1 1 edgecolor
+14 /Times-Roman set_font
+190 166.8 moveto 60 (to process) alignedtext
+grestore
+% simulink_model
+gsave
+0 0 0.82745 nodecolor
+newpath 564.5 281 moveto
+564.5 281 485.5 281 485.5 281 curveto
+479.5 281 473.5 275 473.5 269 curveto
+473.5 269 473.5 257 473.5 257 curveto
+473.5 251 479.5 245 485.5 245 curveto
+485.5 245 564.5 245 564.5 245 curveto
+570.5 245 576.5 251 576.5 257 curveto
+576.5 257 576.5 269 576.5 269 curveto
+576.5 275 570.5 281 564.5 281 curveto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 564.5 281 moveto
+564.5 281 485.5 281 485.5 281 curveto
+479.5 281 473.5 275 473.5 269 curveto
+473.5 269 473.5 257 473.5 257 curveto
+473.5 251 479.5 245 485.5 245 curveto
+485.5 245 564.5 245 564.5 245 curveto
+570.5 245 576.5 251 576.5 257 curveto
+576.5 257 576.5 269 576.5 269 curveto
+576.5 275 570.5 281 564.5 281 curveto
+stroke
+0 0 0 nodecolor
+14 /Times-Roman set_font
+481.5 259.3 moveto 87 (Simulink model) alignedtext
+grestore
+% external_enpoint->simulink_model
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 525 316.95 moveto
+525 308.41 525 299.86 525 291.31 curveto
+stroke
+0 0 0 edgecolor
+newpath 528.5 291.28 moveto
+525 281.28 lineto
+521.5 291.28 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 528.5 291.28 moveto
+525 281.28 lineto
+521.5 291.28 lineto
+closepath stroke
+grestore
+% simulink_model->commands_endpoint
+gsave
+2 setlinewidth
+bold
+0 0 0 edgecolor
+newpath 486.84 244.91 moveto
+466.16 235.07 439.85 222.91 416 213 curveto
+411.82 211.26 407.48 209.51 403.09 207.79 curveto
+stroke
+0 0 0 edgecolor
+newpath 404.06 204.41 moveto
+393.47 204.07 lineto
+401.53 210.94 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 404.06 204.41 moveto
+393.47 204.07 lineto
+401.53 210.94 lineto
+closepath stroke
+0 0 0 edgecolor
+14 /Times-Roman set_font
+426 231.8 moveto 28 (UDP) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 638 646
+end
+restore
+%%EOF
