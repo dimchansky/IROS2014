@@ -308,7 +308,7 @@ address = {Natick, Massachusetts}
 
 @online{EU_CPD:2009:Online,
     key = {EU Directive},
-    title = {Directive 2009/24/{EC} of the {E}uropean {P}arliament of 23 {A}pril 2009 on the legal protection of computer programs},
+    title = {Directive 2009/24/{EC} of the {E}uropean {P}arliament and of the {C}ouncil of 23 {A}pril 2009 on the legal protection of computer programs},
     url = {http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2009:111:0016:01:EN:HTML}
 }
 
