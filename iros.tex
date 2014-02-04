@@ -30,8 +30,7 @@ Software Architecture for Validation and Verification of Cooperative Autonomy of
 \author{Dmitrij Koniajev$^{1}$, Vladimir Fedorov$^{2}$ \\
     Nahum Camacho$^{3}$, Vladimir Dobrokhodov$^{4}$, and Kevin Jones$^{5}$% <-this % stops a space
 \thanks{*The project has been supported over the last 3 years by a number of
-sponsors including the NPS Consortium for Robotics and Unmanned Systems Education and Research, the Army Research Lab, and "The Multidisciplinary
-Studies Support for USMC Expeditionary Energy Office" .}% <-this % stops a space
+sponsors including the NPS Consortium for Robotics and Unmanned Systems Education and Research, the Army Research Lab, and "The Multidisciplinary Studies Support for USMC Expeditionary Energy Office."}% <-this % stops a space
 \thanks{$^{1}$Senior developer in the Demand-Side Platform team,
         Adform Lithuania, J. Jasinskio 16C, LT-01112 Vilnius, Lithuania,
         {\tt\small {dimchansky@gmail.com}}}%
@@ -73,11 +72,12 @@ Therefore, in order to enable the collaborative flight of autonomous thermal soa
 %%%%%%%%%%
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.6]{Figures/coop_scheme_small.eps}
+  \includegraphics[scale=0.5]{Figures/coop_scheme_small.eps}
   \caption{Cooperation of autonomous gliders.}
   \label{fig:coop_scheme}
 \end{figure}
 %%%%%%%%%%
+\squeezeup
 The algorithms will run online to identify the inherent flight dynamics of the glider, which are used to detect the thermal updrafts. When flying in the updraft, the thermaling guidance algorithm is engaged to enable the maximum energy harvesting efficiency of the updraft’s free energy. On the other hand it estimates the updraft geometry and motion that are used to georeference the updraft, and share its utility properties (strength) across the network of collaborative gliders. Finally, the distributed knowledge about the existing updrafts needs to be intelligently utilized to maximize the benefit of the team of gliders flying with a specific operational objective.
 
 \subsection{Architecture of High-fidelity Control Design Environment}
@@ -85,7 +85,9 @@ The algorithms will run online to identify the inherent flight dynamics of the g
 It is clear from the preceding discussion that the desired set of enabling algorithms is significant and includes formalized knowledge from various disciplines including the flight dynamics, flight control, aerodynamics, meteorology, orography, etc. First to be developed is the high fidelity glider dynamics. Next, an advanced autopilot capable of thermals detection and autonomous soaring is to be designed and put into control of a free flying glider. A realistic weather model, including both the vertical air movements and small-scale turbulence models, has to be implemented within a considered scale of operational region. All this is to be augmented by the distributed cooperation algorithm and the communication model that both account for the distributed nature of cooperation and possibly significant losses in communication. Clearly, that even the development of high-fidelity flight dynamics of soaring glider and the realistic weather models represents a significant effort by itself. On the other hand, to verify the efficiency of the developed algorithms a number of flight tests needs to be performed. Thus,  recognizing the value of flight testing and still accounting for the complexity of flight experimentation, the project builds a high-fidelity numerical simulation and control design environment that provides the convenience and rigor of control algorithm development. To this end, the project developed a realistic simulation environment that is based on tight integration of MatLab/Simulink \cite{MATLAB:2013} control design capabilities with the high-fidelity flight dynamics and atmospheric effects of the Condor soaring simulator, see \cite{Condor:2013:Online}.
 
 
-Condor Soaring Simulator (Condor) is a Microsoft Windows application developed around a decade ago and is being well-maintained due to its high utility. It is a very well-known soaring flight simulator within the glider pilot community around the globe. The Condor soaring simulator is one of the most realistic simulators compared to real life soaring; the software has been designed focusing on the fundamental principles of aerodynamic flight, and atmosphere and weather physics. Recognized for the high-fidelity of simulating of the fundamental principals of soaring flight and the high realism of visualization, this simulator has been used by human glider pilots to acquire initial skills and to maintain their proficiency during off-season. The Condor allows to advance piloting skills in different wing loading conditions and weight balancing, various flight regimes including stall and spin. Furthermore, the pilots can experience soaring flight in different areas of the world, test their skills against other pilots in individual and team competitions. The key features of the Condor soaring simulator that are important enablers of the autonomous soaring are provided below, see \cite{Condor:2013:Online} for more details:
+Condor Soaring Simulator (Condor) is a Microsoft Windows application developed around a decade ago. It is a very well-known soaring flight simulator within the glider pilot community around the globe. The Condor soaring simulator is one of the most realistic simulators compared to real life soaring; the software has been designed focusing on the fundamentals of aerodynamic flight, and the atmosphere and weather physics. Recognized also for the high realism of visualization, this simulator has been used by human glider pilots to acquire initial skills and to maintain their proficiency during off-season.
+%The Condor allows to advance piloting skills in different wing loading conditions and weight balancing, %various flight regimes including stall and spin. Furthermore, the pilots can experience soaring flight %in different areas of the world, test their skills against other pilots in individual and team %competitions.
+The key features of the Condor soaring simulator that are important enablers of the autonomous soaring are provided below, see \cite{Condor:2013:Online} for more details:
 \squeezeup
 \begin{itemize}
   \item advanced 6DOF \emph{flight dynamics} model run by real-time high-fidelity computational engine (up to 500 cycles per second); it includes the sailplane's \emph{damage simulation} with an account of the flutter, high $g-load$ stress, and aircraft collisions;
@@ -98,23 +100,22 @@ The simulator provides real-time output of the glider state vector, which is ext
 %%%%%%%%%%
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.35]{Figures/api_arch.eps}
+  \includegraphics[scale=0.3]{Figures/api_arch.eps}
   \caption{The Condor API architecture.}
   \label{fig:api_arch}
 \end{figure}
 %%%%%%%%%%
-
-In order to harness the features of high-fidelity soaring simulation and connect them with advanced capabilities of control systems design provided by the MatLab/Simulink software, an unobtrusive and invisible for the original Condor software service has been developed. The key objective for this ``Condor API'' service is to provide low-level interoperability between the Simulink and Condor. This interoperability\footnote{EU Computer Program Directive~\cite{EU_CPD:2009:Online} and Sec. 103(f) of the DMCA (17 U.S.C. § 1201 (f))~\cite{DMCA:2013:Online} allow reverse engineering for the purposes of interoperability.} has been made possible by using reverse engineering without modifying any of the licensed software. Presented in Figure.\ref{fig:api_arch}, the Condor API service significantly extends the aircraft data, which Condor simulator streams to external applications. The data set includes parameters like the plane position, true airspeed, wind course, wind speed, MacCready setting (MC), and the control surfaces (ailerons, elevator, rudder, and air-break) deflection. The Condor API then streams the aircraft data to an external application using the UDP protocol. Utilizing this API, an external application can send the control surface commands back to the Condor API service via UDP, thus effectively establishing the software in the loop (SIL) environment, see Figure.\ref{fig:SIL}.
+In order to harness the features of high-fidelity soaring simulation and connect them with advanced capabilities of control systems design provided by the MatLab/Simulink software, an unobtrusive and invisible for the original Condor software service has been developed. The key objective for this ``Condor API'' service is to provide low-level interoperability between the Simulink and Condor. This interoperability\footnote{EU Computer Program Directive~\cite{EU_CPD:2009:Online} and Sec. 103(f) of the DMCA (17 U.S.C. § 1201 (f))~\cite{DMCA:2013:Online} allow reverse engineering for the purposes of interoperability.} has been made possible by using reverse engineering without modifying any of the licensed software. Presented in Figure.\ref{fig:api_arch}, the Condor API service significantly extends the aircraft data, which Condor simulator streams to external applications. The data set includes parameters like the plane position, true airspeed, wind course, wind speed, MacCready setting, and the control surfaces deflection. The Condor API then streams the aircraft data to an external application using the UDP protocol. Utilizing this API, an external application can send the control surface commands back to the Condor API service via UDP, thus effectively establishing the software in the loop (SIL) environment, see Figure.\ref{fig:SIL}.
 %%%%%%%%%%
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.33]{Figures/SIL.eps}
+  \includegraphics[scale=0.3]{Figures/SIL.eps}
   \caption{SIL environment integrates the capabilities of Simulink and Condor.}
   \label{fig:SIL}
 \end{figure}
 %%%%%%%%%%
 
-Verification and validation of cooperative control strategies that take significant time to evolve in a distributed settings can be very difficult. To facilitate early identification of correct strategies and save time a visualization of cooperative strategies might be very effective. To this end, the Condor API service has been expanded with the ``FlightRadar'' external application that provides the capability to represent multiple evolving trajectories in one $3D$ map. To visualize the strategies of multiple competing soaring gliders in real-time the FlightRadar streams the telemetry information to Google Maps~\cite{GoogleMaps:2013:Online}, see an example of a half-hour flight in Figure.\ref{fig:FlightRadar}.
+Verification and validation (V\&V) of cooperative control strategies that take significant time to evolve in a distributed settings can be very difficult. To facilitate early identification of correct strategies and save time a visualization of cooperative strategies might be very effective. To this end, the Condor API service has been expanded with the ``FlightRadar'' external application that provides the capability to represent multiple evolving trajectories in one $3D$ map. To visualize the strategies of multiple competing soaring gliders in real-time the FlightRadar streams the telemetry information to Google Maps~\cite{GoogleMaps:2013:Online}, see an example of a half-hour flight in Figure.\ref{fig:FlightRadar}.
 %%%%%%%%%%
 \begin{figure}[thpb]
   \centering
@@ -124,11 +125,11 @@ Verification and validation of cooperative control strategies that take signific
 \end{figure}
 %%%%%%%%%%
 
-An example of possible setup for the design and verification of the cooperative soaring algorithms is given in Fig. \ref{fig:DevEnv} that represents a scenario where the autonomous gliders and the human pilots can fly together. Current weather conditions and interaction between the gliders in Condor simulator is handled by the Condor server application that can be deployed either in the same local network as the Condor Soaring Simulator or a dedicated Internet server provided by the company can be utilized; a set of servers is publicly available with their IP addresses and settings available to the registered users. A modelled glider communicates with the server via the Condor protocol over the Internet/network as in a typical computer game in multi-player mode. The Condor-Simulink SIL environment runs on the same (or a separate) computer and interacts via UDP protocol with the Condor API service. The multiple instances of Condor-Simulink SIL environments share knowledge among themselves via the cooperation protocol (CDP) within the local computer network. In addition, this setup also allows gliders to be controlled by human pilots operating within the same network by using the original Condor simulator client application.
+An example of possible setup for the design and V\&V of the cooperative soaring algorithms is given in Figure. \ref{fig:DevEnv} that represents a scenario where the autonomous gliders and the human pilots can fly together. Current weather conditions and interaction between the gliders in Condor simulator is handled by the Condor server application that can be deployed either in the same local network as the Condor Soaring Simulator or a dedicated Internet server provided by the company can be utilized; a set of servers is publicly available with their IP addresses and settings available to the registered users. A modelled glider communicates with the server via the Condor protocol over the Internet/network as in a typical computer game in multi-player mode. The Condor-Simulink SIL environment runs on the same (or a separate) computer and interacts via UDP protocol with the Condor API service. The multiple instances of Condor-Simulink SIL environments share knowledge among themselves via the cooperation protocol (CDP) within the local computer network. In addition, this setup also allows gliders to be controlled by human pilots operating within the same network by using the original Condor simulator client application.
 
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.5]{Figures/dev_env_.eps}
+  \includegraphics[scale=0.45]{Figures/dev_env_.eps}
   \caption{Possible setup of two SIL environments and a glider operated by a human pilot; Condor simulator server is running on a dedicated PC.}
   \label{fig:DevEnv}
 \end{figure}
@@ -166,8 +167,8 @@ where $m$ is the mass of the airframe, $g$ is the gravitational constant, $E$ is
 %%%%%%%%%%%%%%%%
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.44]{Figures/TEK_Bank.eps}
-  \caption{Energy-based detection of updrafts simulated by the~\cite{Condor:2013:Online} software.}
+  \includegraphics[scale=0.4]{Figures/TEK_Bank.eps}
+  \caption{Energy-based detection of updrafts simulated by the software~\cite{Condor:2013:Online}.}
   \label{fig:ThermalDetection}
 \end{figure}
 %%%%%%%%%%%%%%%%
@@ -181,7 +182,7 @@ where $\rho$ and $\rho_d$ are the current distance and the desired orbital radiu
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.3]{Figures/ThermalG.eps}
+  \includegraphics[scale=0.25]{Figures/ThermalG.eps}
   \caption{Kinematics of guidance around a stationary thermal updraft;
   the desired orbit is represented by the red dashed line defined by $\rho_d$.}
   \label{fig:ThermaG}
@@ -221,24 +222,45 @@ An example of the Bayesian approach for the case of three simulated gliders coop
 %%%%%%%%%%
 The task is to find the updraft in a bounded area and to converge to the same thermal by utilizing the detection algorithms discussed above; the task mimics the setup and the objectives of the first cooperative flight test of two gliders reported earlier in \cite{AKlass_JGCD:2012}. In the demonstrated
 result the prior probability density is initialized by a uniform function over the entire area of operation. The result corresponds to the progression of the probability density function estimated onboard of glider $\#1$ along its flight path, see the corresponding cooperative trajectories of gliders
-$\#2$ and $\#3$ in Figure.\ref{fig:CoopFlightPaths}. The gliders start their flight simultaneously at the same altitude, and initially spend some time in search for thermals. When glider $\#1$ detects an updraft utilizing either of the thermal detection approaches and shares the information about the thermal, the other two gliders arrive to the same thermal, and successfully gain height all together. Time history of the altitude of three cooperative gliders is presented next in Figure.\ref{fig:CoopFlightHeight}. The result clearly demonstrates the benefits and significant potential of collaborative strategies in harvesting the convective updraft energy from the environment.
+$\#2$ and $\#3$ in Figure.\ref{fig:CoopFlightPaths}. The gliders start their flight simultaneously at the same altitude, and initially spend some time in search for thermals. When glider $\#1$ detects an updraft utilizing either of the thermal detection approaches and shares the information about the thermal, the other two gliders arrive to the same thermal, and successfully gain height all together. The time history of the altitude gain is presented next in Figure.\ref{fig:CoopFlightHeight}.
 %%%%%%%%%%
 \begin{figure}[thpb]
   \centering
-  \includegraphics[scale=0.39]{Figures/Coop_gain_altitude.eps}
+  \includegraphics[scale=0.36]{Figures/Coop_gain_altitude.eps}
   \caption{Cooperative gain of altitude.}
   \label{fig:CoopFlightHeight}
 \end{figure}
 %%%%%%%%%%
 \squeezeup
+The following result illustrates the capabilities of gliders to make independent decisions in gaining the altitude. The initial settings, the setup, and the goal remain the same. Figure.\ref{fig:CoopFlightIndependentDecision} illustrates that independent decision making allows to utilize the thermals of opportunity by sharing their geographic location and strength found by other gliders. The decision to stay in a newly found thermal is made if its strength is comparable with the strength of nearby ``known'' thermal. The obvious gain of height confirms the efficiency of this strategy.
+%%%%%%%%%%
+\begin{figure}[thpb]
+  \centering
+  \includegraphics[scale=0.42]{Figures/SecondExp/paths_cooperative_flight_mod.eps}
+  \caption{Independent decision making.}
+  \label{fig:CoopFlightIndependentDecision}
+\end{figure}
+%%%%%%%%%%%
+%\squeezeup
+%%%%%%%%%%%
+%\begin{figure}[thpb]
+%  \centering
+%  \includegraphics[scale=0.39]{Figures/SecondExp/Thermal_detection_and_gain_altitude_mod.eps}
+%  \caption{Independent gain of altitude.}
+%  \label{fig:CoopFlightHeightIndependentDecision}
+%\end{figure}
+%%%%%%%%%%%
+The results clearly demonstrate the benefits of collaborative strategies in harvesting the convective updraft energy from the environment.
 
 \section*{CONCLUSIONS}
-The paper presents the initial development of convective thermal soaring capability integrated onboard of multiple cooperative gliders. The discussion details the key technologies required to integrate
-the convective air energy harvesting into a cooperative mission planning and execution environment. The discussion then focuses on the software architecture that allows to design the intelligent cooperative soaring autonomy and to verify the designed control algorithms in a high-fidelity simulation prior to the actual flight. The key benefits of the software for the flight control system design include the ability to realistically represent the atmospheric convective airflow and its interaction with 3D terrain, the high-fidelity flight dynamics of a variety of soaring gliders, and the advance MathWorks' tools of the control development and flight data analysis. The key technologies developed and verified in the novel SIL environment include the online characterization of the inherent flight dynamics of soaring gliders, the convective thermals detection, and the collaborative environment sensing by utilizing recursive Bayesian estimation. Ultimately, the developed system allows verification and validation of advanced cooperative control strategies and their comparison against best practices of human piloted soaring flight.
+The paper presents the development of autonomous convective thermal soaring capability of multiple cooperative gliders.
+%The discussion details the key technologies required to integrate
+%the convective air energy harvesting into a cooperative mission planning and execution environment.
+The discussion focuses on the software architecture that allows to design the intelligent cooperative soaring autonomy, and to verify the designed control algorithms in a high-fidelity simulation prior to the actual flight. The key benefits of the software include the ability to realistically represent the atmospheric convective airflow and its interaction with 3D terrain, the high-fidelity flight dynamics of a variety of soaring gliders, and the advance MathWorks' tools of the control development and flight data analysis. The key technologies developed and verified in the novel SIL environment include the online characterization of the inherent flight dynamics of soaring gliders, the convective thermals detection, and the collaborative environment sensing by utilizing recursive Bayesian estimation. Ultimately, the developed system allows V\&V of advanced cooperative control strategies and their comparison against the best practices of human piloted soaring flight.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,iros}
 
-\end{document}
+\end{document} 
